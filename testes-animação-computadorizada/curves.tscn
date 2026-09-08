@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d4c06pii2ohu"]
+
+[ext_resource type="Script" uid="uid://u4qbwgycb0h2" path="res://curves.gd" id="1_nw6b8"]
+[ext_resource type="PackedScene" uid="uid://btt4n7hds8ls5" path="res://curve_control_point.tscn" id="2_c7s0k"]
+[ext_resource type="PackedScene" uid="uid://d2unjs8sgudew" path="res://test_cube.tscn" id="3_sgye3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgye3"]
+albedo_color = Color(1, 0.011764706, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_sgye3")
+
+[node name="Curves" type="Node3D" unique_id=1319822474]
+script = ExtResource("1_nw6b8")
+selected_type = 1
+line_segments = 10
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=553839280]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1632905686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5949402, -0.38598633, 0.822937)
+size = Vector3(33.250183, 0.22802734, 41.99109)
+
+[node name="curve_things" type="Node3D" parent="." unique_id=1188902364]
+
+[node name="Curve control point" parent="curve_things" unique_id=1715318879 instance=ExtResource("2_c7s0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.799296)
+
+[node name="Curve control point2" parent="curve_things" unique_id=2095204648 instance=ExtResource("2_c7s0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6852164, 0, -6.1762395)
+
+[node name="Curve control point3" parent="curve_things" unique_id=619782990 instance=ExtResource("2_c7s0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.182621)
+
+[node name="Curve control point4" parent="curve_things" unique_id=614937782 instance=ExtResource("2_c7s0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3406906, 0, 6.31985)
+
+[node name="Curve control point5" parent="curve_things" unique_id=1253843158 instance=ExtResource("2_c7s0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3406906, 0, 13.831721)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1766496347]
+transform = Transform3D(1, 0, 0, 0, 0.011718438, 0.99993134, 0, -0.99993134, 0.011718438, -1.3169847, 20.848316, 0)
+
+[node name="Test_Cube" parent="." unique_id=1242217732 instance=ExtResource("3_sgye3")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=258826426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.12746, 14.60891)
+mesh = SubResource("SphereMesh_g4v7s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1953205827]
+transform = Transform3D(1, 0, 0, 0, -0.15664274, 0.98765534, 0, -0.98765534, -0.15664274, 0, 37, 0)

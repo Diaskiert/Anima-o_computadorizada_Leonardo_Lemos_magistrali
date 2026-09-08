@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bacbr8rc7olvp"]
+
+[ext_resource type="Script" uid="uid://bcqas4m3vjfds" path="res://main_anim.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ces6mgc5a3wfg" path="res://Cubo player.tscn" id="2_0xm2m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_7dm0k"]
+resource_name = "Cubo movendo"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.4115498, 0), Vector3(0, 2.9409478, 0), Vector3(0, 0.4115498, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ig7tw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.4115498, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xm2m"]
+_data = {
+&"Cubo movendo": SubResource("Animation_7dm0k"),
+&"RESET": SubResource("Animation_ig7tw")
+}
+
+[node name="Node3D" type="Node3D" unique_id=951834899]
+script = ExtResource("1_ig7tw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1754473634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033950806, -0.1063, 0.8269043)
+use_collision = true
+size = Vector3(9.790619, 0.030761719, 8.392578)
+
+[node name="Cube" type="CSGBox3D" parent="." unique_id=1054341471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4115498, 0)
+material_override = SubResource("StandardMaterial3D_7dm0k")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1826427140]
+transform = Transform3D(1, 0, 0, 0, 0.9540326, 0.2997029, 0, -0.2997029, 0.9540326, 0, 1.4828463, 4.369878)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2054630636]
+transform = Transform3D(1, 0, 0, 0, -0.0023334445, 0.9999973, 0, -0.9999973, -0.0023334448, 0, 4.364478, 0.804755)
+light_energy = 7.261
+light_indirect_energy = 3.783
+light_volumetric_fog_energy = 3.474
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1312064167]
+libraries/ = SubResource("AnimationLibrary_0xm2m")
+
+[node name="CharacterBody3D" parent="." unique_id=2000631764 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3155359, 0.43122756, 1.9869708)
