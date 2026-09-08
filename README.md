@@ -1,0 +1,2 @@
+# Animação_computadorizada_Leonardo_Lemos_magistrali
+Entrega de atividades da cadeira de animação computadorizada
