@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://clndsqacttgd3"]
+
+[ext_resource type="Texture2D" uid="uid://dvdbgwypvn72j" path="res://star particle.png" id="1_ah5qx"]
+[ext_resource type="Script" uid="uid://bqti3r3ubpygu" path="res://Particle system.gd" id="2_ispy0"]
+
+[sub_resource type="Curve" id="Curve_ispy0"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0.027027026, -360), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ispy0"]
+curve = SubResource("Curve_ispy0")
+
+[sub_resource type="Curve" id="Curve_ah5qx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_65ldm"]
+curve = SubResource("Curve_ah5qx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ispy0"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 5000.0
+angular_velocity_curve = SubResource("CurveTexture_ispy0")
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_65ldm")
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=255688421]
+position = Vector2(593, 318)
+texture = ExtResource("1_ah5qx")
+process_material = SubResource("ParticleProcessMaterial_ispy0")
+script = ExtResource("2_ispy0")
