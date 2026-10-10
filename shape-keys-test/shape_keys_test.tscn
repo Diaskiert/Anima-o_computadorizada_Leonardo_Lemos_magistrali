@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ddvdvjcqgpx62"]
+
+[ext_resource type="PackedScene" uid="uid://e8jlkavgpgyn" path="res://Shape keys test.glb" id="1_uojq7"]
+[ext_resource type="Script" uid="uid://dsstuoyxscmlq" path="res://shape_keys_test.gd" id="2_odd8p"]
+
+[node name="Shape keys test" unique_id=1269769730 instance=ExtResource("1_uojq7")]
+script = ExtResource("2_odd8p")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

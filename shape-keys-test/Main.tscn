@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://by6gvim2842vt"]
+
+[ext_resource type="PackedScene" uid="uid://ddvdvjcqgpx62" path="res://shape_keys_test.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://erup5iqblsgv" path="res://main.gd" id="1_uu6xs"]
+
+[node name="Node3D" type="Node3D" unique_id=1818530689]
+script = ExtResource("1_uu6xs")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1236923187]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1136374204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46533203, -4.077881)
+size = Vector3(7.3710938, 0.06933594, 9.155762)
+
+[node name="Shape keys test" parent="." unique_id=1269769730 instance=ExtResource("1_glv2v")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.20511937, -0.41006243, -1.2382963)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=681944774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5078075, -4.302178)
